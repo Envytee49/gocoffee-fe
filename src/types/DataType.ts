@@ -34,3 +34,22 @@ interface CoffeeShop {
     detailAddress: string;
     coverImageLink: string;
 }
+
+interface Page {
+    page: number;
+    size: number;
+    totalPages: number;
+    totalElements: number;
+}
+interface User {
+    name?: string;
+    email?: string;
+    profileUrl?: string;
+    phone?: string;
+};
+
+interface ErrorResponse {
+    errorCode: string;
+    statusCode: number;
+    message: string;
+}

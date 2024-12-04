@@ -1,27 +1,20 @@
 import { NextResponse } from "next/server";
-import type { NextFetchEvent, NextRequest } from "next/server";
-// import { verifyToken } from "./auth"; // Assuming you have an authentication function
+import type { NextRequest } from "next/server";
+import { fetchFromAPI } from "./utils/api";
+import { useUserStore } from "./store/userStore";
 
-export function middleware(req: NextRequest, event: NextFetchEvent) {
-  try {
-    const token = req.cookies.get("next-auth.session-token");
-    if (!token?.value) {
-      // Authentication failed
-      return NextResponse.redirect(new URL("/auth/login", req.url)); // Redirect to login
-    }
+export async function middleware(request: NextRequest) {
+  const accessToken = request.cookies.get("access-token");
 
-    // Authentication successful, continue to the requested page
-    return NextResponse.next();
-  } catch (error) {
-    // Handle authentication errors
-    console.error("Authentication error:", error);
-    return NextResponse.json(
-      { success: false, message: "An error occurred during authentication." },
-      { status: 401 }
-    );
+  // If no token, redirect to login
+  if (!accessToken) {
+    return NextResponse.redirect(new URL("/login", request.url));
   }
+  // If user is authenticated, proceed with the request
+  return NextResponse.next();
 }
 
+// Match middleware only for protected routes
 export const config = {
-  matcher: "/dashboard/:path",
+  matcher: ["/admin/:path*", "/saved/:path*", "/profile/:path*" ], // Adjust to your routes
 };

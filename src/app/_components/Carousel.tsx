@@ -38,9 +38,9 @@ const Carousel = ({ images }: CarouselProps) => {
     };
 
     return (
-        <div className="flex flex-col max-w-md max-h-fit">
+        <div className="flex-1 flex flex-col max-w-md max-h-fit">
             {/* Main Image Frame */}
-            <div className="mb-4 w-full h-full border border-gray-300 overflow-hidden rounded-lg shadow-lg">
+            <div className=" mb-4 w-full h-full border border-gray-300 overflow-hidden rounded-lg shadow-lg">
                 <img
                     src={mainImage}
                     alt="Main"
@@ -56,7 +56,7 @@ const Carousel = ({ images }: CarouselProps) => {
                     disabled={startIndex === 0}
                     className="p-1 rounded-full bg-white text-gray-700 disabled:opacity-50 absolute"
                 >
-                    <svg className="text-amber-700 bg-white rotate-90" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" ><path d="M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z" fill="currentColor" clip-rule="evenodd"></path></svg>
+                    <svg className="text-amber-700 bg-white rotate-90" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" ><path d="M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z" fill="currentColor"></path></svg>
                 </button>
 
                 {/* Thumbnails */}
@@ -82,7 +82,7 @@ const Carousel = ({ images }: CarouselProps) => {
                     disabled={startIndex + maxVisibleImages >= images.length}
                     className="rounded-full p-1 bg-white text-gray-700 disabled:opacity-50 absolute right-0"
                 >
-                    <svg className="text-amber-700 bg-white -rotate-90" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" style={{ transform: "rotate(-90deg);" }}><path d="M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z" fill="currentColor" clip-rule="evenodd"></path></svg>
+                    <svg className="text-amber-700 bg-white -rotate-90" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z" fill="currentColor"></path></svg>
                 </button>
             </div>
             
